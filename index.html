@@ -1,180 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Credit Card Application</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Credit Card Application</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #1a202c;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 1rem;
-        }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #1a202c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 1rem;
+    }
 
-        .card-container {
-            background-color: #2d3748;
-            color: #e2e8f0;
-        }
+    .card-container {
+      background-color: #2d3748;
+      color: #e2e8f0;
+    }
 
-        .input-field {
-            background-color: #4a5568;
-            color: #e2e8f0;
-            border: 1px solid #4a5568;
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
+    .input-field {
+      background-color: #4a5568;
+      color: #e2e8f0;
+      border: 1px solid #4a5568;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
 
-        .input-field:focus {
-            border-color: #4299e1;
-        }
+    .input-field:focus {
+      border-color: #4299e1;
+    }
 
-        .apply-button {
-            background-color: #3b82f6;
-            transition: background-color 0.3s ease;
-        }
+    .apply-button {
+      background-color: #3b82f6;
+      transition: background-color 0.3s ease;
+    }
 
-        .apply-button:hover {
-            background-color: #2563eb;
-        }
+    .apply-button:hover {
+      background-color: #2563eb;
+    }
 
-        .response-message {
-            display: none;
-            margin-top: 1rem;
-            padding: 0.75rem;
-            border-radius: 0.5rem;
-            font-weight: 500;
-            text-align: center;
-        }
+    .response-message {
+      display: none;
+      margin-top: 1rem;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      text-align: center;
+    }
 
-        .success {
-            background-color: #2f855a;
-            color: white;
-        }
+    .success {
+      background-color: #2f855a;
+      color: white;
+    }
 
-        .error {
-            background-color: #c53030;
-            color: white;
-        }
-    </style>
+    .error {
+      background-color: #c53030;
+      color: white;
+    }
+  </style>
 </head>
 <body class="flex items-center justify-center min-h-screen p-4">
 
-    <!-- Main Form Container -->
-    <div class="card-container rounded-3xl shadow-xl max-w-lg w-full p-8 md:p-12 space-y-8 text-center">
-        <div class="space-y-2">
-            <h1 class="text-3xl md:text-4xl font-bold">Digital Credit Card Application</h1>
-        </div>
-
-        <!-- Form -->
-        <form id="creditCardForm" class="space-y-6">
-
-            <!-- Full Name Field -->
-            <div>
-                <label for="fullName" class="block text-sm font-medium text-left">Full Name</label>
-                <div class="mt-1">
-                    <input type="text" id="fullName" name="fullName" placeholder="Example: Sumit Sharma"
-                        class="input-field w-full px-4 py-3 rounded-xl shadow-sm">
-                </div>
-            </div>
-
-            <!-- Mobile Number Field -->
-            <div>
-                <label for="mobileNumber" class="block text-sm font-medium text-left">Mobile Number</label>
-                <div class="mt-1">
-                    <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="Example: 9876543210"
-                        class="input-field w-full px-4 py-3 rounded-xl shadow-sm">
-                </div>
-            </div>
-
-            <!-- City Name Field -->
-            <div>
-                <label for="cityName" class="block text-sm font-medium text-left">City Name</label>
-                <div class="mt-1">
-                    <input type="text" id="cityName" name="cityName" placeholder="Example: Delhi"
-                        class="input-field w-full px-4 py-3 rounded-xl shadow-sm">
-                </div>
-            </div>
-            
-            <!-- Cibil Score Field -->
-            <div>
-                <label for="cibilScore" class="block text-sm font-medium text-left">Cibil Score</label>
-                <div class="mt-1">
-                    <select id="cibilScore" name="cibilScore" class="input-field w-full px-4 py-3 rounded-xl shadow-sm">
-                        <option value="" disabled selected>Select your Cibil Score range</option>
-                        <option value="Below 720">Below 720</option>
-                        <option value="720 to 750">720 to 750</option>
-                        <option value="750 & Above">750 & Above</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Apply Now Button -->
-            <div>
-                <button type="submit" id="submitBtn"
-                    class="apply-button w-full flex justify-center py-3 px-4 rounded-xl shadow-lg text-sm font-bold text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                    Apply Now
-                </button>
-            </div>
-        </form>
-
-        <!-- Response Message -->
-        <div id="responseMessage" class="response-message"></div>
-
-        <!-- Information Text -->
-        <div class="text-center text-gray-400 text-sm space-y-2 pt-4">
-            <p>Your Name & Mobile Number help us to assist you to complete your Application. (Not Mandatory)</p>
-            <p>Your information is secure and encrypted.</p>
-        </div>
+  <!-- Main Form Container -->
+  <div class="card-container rounded-3xl shadow-xl max-w-lg w-full p-8 md:p-12 space-y-8 text-center">
+    <div class="space-y-2">
+      <h1 class="text-3xl md:text-4xl font-bold">Digital Credit Card Application</h1>
     </div>
 
-    <script>
-        const form = document.getElementById('creditCardForm');
-        const responseMessage = document.getElementById('responseMessage');
-        const submitBtn = document.getElementById('submitBtn');
+    <!-- Form -->
+    <form id="creditCardForm" class="space-y-6">
 
-        // IMPORTANT: Replace this URL with your Google Sheets App Script URL
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbws9spe2hifgVvCiL420kEfF-sXiG_dwzGSYpFUtqnRPBwtmzs_PA2Hy41qKoU2ppN2jg/exec';
+      <!-- Full Name Field -->
+      <div>
+        <label for="fullName" class="block text-sm font-medium text-left">Full Name</label>
+        <div class="mt-1">
+          <input type="text" id="fullName" name="fullName" placeholder="Example: Sumit Sharma"
+            class="input-field w-full px-4 py-3 rounded-xl shadow-sm">
+        </div>
+      </div>
 
-        form.addEventListener('submit', e => {
-            e.preventDefault();
+      <!-- Mobile Number Field -->
+      <div>
+        <label for="mobileNumber" class="block text-sm font-medium text-left">Mobile Number</label>
+        <div class="mt-1">
+          <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="Example: 9876543210"
+            class="input-field w-full px-4 py-3 rounded-xl shadow-sm">
+        </div>
+      </div>
 
-            // Show loading message
-            responseMessage.textContent = 'Submitting...';
-            responseMessage.className = 'response-message';
-            responseMessage.style.display = 'block';
-            submitBtn.disabled = true;
+      <!-- City Name Field -->
+      <div>
+        <label for="cityName" class="block text-sm font-medium text-left">City Name</label>
+        <div class="mt-1">
+          <input type="text" id="cityName" name="cityName" placeholder="Example: Delhi"
+            class="input-field w-full px-4 py-3 rounded-xl shadow-sm">
+        </div>
+      </div>
+      
+      <!-- Cibil Score Field -->
+      <div>
+        <label for="cibilScore" class="block text-sm font-medium text-left">Cibil Score</label>
+        <div class="mt-1">
+          <select id="cibilScore" name="cibilScore" class="input-field w-full px-4 py-3 rounded-xl shadow-sm">
+            <option value="" disabled selected>Select your Cibil Score range</option>
+            <option value="Below 720">Below 720</option>
+            <option value="720 to 750">720 to 750</option>
+            <option value="750 & Above">750 & Above</option>
+          </select>
+        </div>
+      </div>
 
-            const formData = new FormData(form);
+      <!-- Apply Now Button -->
+      <div>
+        <button type="submit" id="submitBtn"
+          class="apply-button w-full flex justify-center py-3 px-4 rounded-xl shadow-lg text-sm font-bold text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+          Apply Now
+        </button>
+      </div>
+    </form>
 
-            fetch(scriptURL, { method: 'POST', body: formData })
-                .then(response => {
-                    if (response.ok) {
-                        responseMessage.textContent = 'Application submitted successfully!';
-                        responseMessage.className = 'response-message success';
-                        form.reset();
-                    } else {
-                        // Handle server-side errors
-                        responseMessage.textContent = 'An error occurred. Please try again.';
-                        responseMessage.className = 'response-message error';
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    responseMessage.textContent = 'An error occurred. Please try again.';
-                    responseMessage.className = 'response-message error';
-                })
-                .finally(() => {
-                    submitBtn.disabled = false;
-                });
+    <!-- Response Message -->
+    <div id="responseMessage" class="response-message"></div>
+
+    <!-- Information Text -->
+    <div class="text-center text-gray-400 text-sm space-y-2 pt-4">
+      <p>Your Name & Mobile Number help us to assist you to complete your Application. (Not Mandatory)</p>
+      <p>Your information is secure and encrypted.</p>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('creditCardForm');
+    const responseMessage = document.getElementById('responseMessage');
+    const submitBtn = document.getElementById('submitBtn');
+
+    // Replace this with your Google Sheets App Script URL
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbws9spe2hifgVvCiL420kEfF-sXiG_dwzGSYpFUtqnRPBwtmzs_PA2Hy41qKoU2ppN2jg/exec';
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      responseMessage.textContent = 'Submitting...';
+      responseMessage.className = 'response-message';
+      responseMessage.style.display = 'block';
+      submitBtn.disabled = true;
+
+      const formData = new FormData(form);
+
+      fetch(scriptURL, { method: 'POST', body: formData })
+        .then(response => {
+          if (response.ok) {
+            // 🚀 Direct Redirect without delay
+            window.location.href = "https://applyonline.hdfcbank.com/cards/credit-cards.html?CHANNELSOURCE=ZETA&DSACode=XTML&LGcode=STML85&LCcode=STML85&LC2=STML85&SMcode=D8802#nbb";
+          } else {
+            responseMessage.textContent = 'An error occurred. Please try again.';
+            responseMessage.className = 'response-message error';
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          responseMessage.textContent = 'An error occurred. Please try again.';
+          responseMessage.className = 'response-message error';
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
         });
-    </script>
+    });
+  </script>
 </body>
 </html>
