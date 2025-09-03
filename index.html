@@ -140,12 +140,13 @@
     const responseMessage = document.getElementById('responseMessage');
     const submitBtn = document.getElementById('submitBtn');
 
-    // Replace this with your Google Sheets App Script URL
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbws9spe2hifgVvCiL420kEfF-sXiG_dwzGSYpFUtqnRPBwtmzs_PA2Hy41qKoU2ppN2jg/exec';
+    // IMPORTANT: Replace this URL with your Google Sheets App Script URL
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzJ99ok_jkFlS9cALsrKHqgj8OH5kWx8oIGiyAtwz4udQq6-8eSo4PI7a5rqOF_azSaaA/exec';
 
     form.addEventListener('submit', e => {
       e.preventDefault();
 
+      // Show loading message
       responseMessage.textContent = 'Submitting...';
       responseMessage.className = 'response-message';
       responseMessage.style.display = 'block';
@@ -159,6 +160,7 @@
             // 🚀 Direct Redirect without delay
             window.location.href = "https://applyonline.hdfcbank.com/cards/credit-cards.html?CHANNELSOURCE=ZETA&DSACode=XTML&LGcode=STML85&LCcode=STML85&LC2=STML85&SMcode=D8802#nbb";
           } else {
+            // Handle server-side errors
             responseMessage.textContent = 'An error occurred. Please try again.';
             responseMessage.className = 'response-message error';
           }
