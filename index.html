@@ -2,178 +2,207 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Flood and Flakes | Digital Menu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital Credit Card Application</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Preload hero image -->
+  <link rel="preload" as="image" href="https://i.ibb.co/4gWp1SMN/menu.webp">
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: #1a202c;
+      background: #f7f7f7;
+      color: #222;
+    }
+
+    /* ===== NAVBAR ===== */
+    header {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 100;
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 20px;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      min-height: 100vh;
-      padding: 1rem;
     }
 
-    .card-container {
-      background-color: #2d3748;
-      color: #e2e8f0;
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #e63946;
     }
 
-    .input-field {
-      background-color: #4a5568;
-      color: #e2e8f0;
-      border: 1px solid #4a5568;
-      outline: none;
-      transition: border-color 0.3s ease;
-    }
-
-    .input-field:focus {
-      border-color: #4299e1;
-    }
-
-    .apply-button {
-      background-color: #3b82f6;
-      transition: background-color 0.3s ease;
-    }
-
-    .apply-button:hover {
-      background-color: #2563eb;
-    }
-
-    .response-message {
-      display: none;
-      margin-top: 1rem;
-      padding: 0.75rem;
-      border-radius: 0.5rem;
+    .nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #222;
       font-weight: 500;
+    }
+
+    .nav a:hover {
+      color: #e63946;
+    }
+
+    /* ===== HERO (IMG BASED – NO ERROR) ===== */
+    .hero {
+      position: relative;
+      height: 60vh;
+      overflow: hidden;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero h1 {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #fff;
+      background: rgba(0,0,0,0.55);
       text-align: center;
     }
 
-    .success {
-      background-color: #2f855a;
-      color: white;
+    /* ===== MENU ===== */
+    .title {
+      text-align: center;
+      margin: 40px 0 20px;
+      font-size: 2.2rem;
+      color: #e63946;
     }
 
-    .error {
-      background-color: #c53030;
-      color: white;
+    .gallery {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px 50px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.04);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .card p {
+      padding: 12px;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer p {
+      margin: 5px 0;
+      font-size: 0.95rem;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+        padding: 0 10px;
+      }
     }
   </style>
 </head>
-<body class="flex items-center justify-center min-h-screen p-4">
 
-  <!-- Main Form Container -->
-  <div class="card-container rounded-3xl shadow-xl max-w-lg w-full p-8 md:p-12 space-y-8 text-center">
-    <div class="space-y-2">
-      <h1 class="text-3xl md:text-4xl font-bold">Digital Credit Card Application</h1>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="nav">
+      <div class="logo">Flood and Flakes</div>
+      <div>
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <img
+      src="https://i.ibb.co/4gWp1SMN/menu.webp"
+      alt="Flood and Flakes Hero"
+      loading="eager"
+      decoding="async">
+    <h1>Welcome to Flood and Flakes</h1>
+  </section>
+
+  <!-- MENU -->
+  <h2 class="title" id="menu">Our Digital Menu</h2>
+
+  <div class="gallery">
+    <div class="card">
+      <img
+        src="https://i.ibb.co/4gWp1SMN/menu.webp"
+        alt="Flood and Flakes Menu"
+        loading="lazy"
+        decoding="async"
+        width="800"
+        height="600">
+      <p>Our Special Menu</p>
     </div>
 
-    <!-- Form -->
-    <form id="creditCardForm" class="space-y-6">
-
-      <!-- Full Name Field -->
-      <div>
-        <label for="fullName" class="block text-sm font-medium text-left">Full Name</label>
-        <div class="mt-1">
-          <input type="text" id="fullName" name="fullName" placeholder="Example: Sumit Sharma"
-            class="input-field w-full px-4 py-3 rounded-xl shadow-sm">
-        </div>
-      </div>
-
-      <!-- Mobile Number Field -->
-      <div>
-        <label for="mobileNumber" class="block text-sm font-medium text-left">Mobile Number</label>
-        <div class="mt-1">
-          <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="Example: 9876543210"
-            class="input-field w-full px-4 py-3 rounded-xl shadow-sm">
-        </div>
-      </div>
-
-      <!-- City Name Field -->
-      <div>
-        <label for="cityName" class="block text-sm font-medium text-left">City Name</label>
-        <div class="mt-1">
-          <input type="text" id="cityName" name="cityName" placeholder="Example: Delhi"
-            class="input-field w-full px-4 py-3 rounded-xl shadow-sm">
-        </div>
-      </div>
-      
-      <!-- Cibil Score Field -->
-      <div>
-        <label for="cibilScore" class="block text-sm font-medium text-left">Cibil Score</label>
-        <div class="mt-1">
-          <select id="cibilScore" name="cibilScore" class="input-field w-full px-4 py-3 rounded-xl shadow-sm">
-            <option value="" disabled selected>Select your Cibil Score range</option>
-            <option value="Below 720">Below 720</option>
-            <option value="720 to 750">720 to 750</option>
-            <option value="750 & Above">750 & Above</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Apply Now Button -->
-      <div>
-        <button type="submit" id="submitBtn"
-          class="apply-button w-full flex justify-center py-3 px-4 rounded-xl shadow-lg text-sm font-bold text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-          Apply Now
-        </button>
-      </div>
-    </form>
-
-    <!-- Response Message -->
-    <div id="responseMessage" class="response-message"></div>
-
-    <!-- Information Text -->
-    <div class="text-center text-gray-400 text-sm space-y-2 pt-4">
-      <p>Your Name & Mobile Number help us to assist you to complete your Application. (Not Mandatory)</p>
-      <p>Your information is secure and encrypted.</p>
+    <div class="card">
+      <img
+        src="https://i.ibb.co/FLR51FRC/menu2.webp"
+        alt="Flood and Flakes Menu 2"
+        loading="lazy"
+        decoding="async"
+        width="800"
+        height="600">
+      <p>Chef Recommended</p>
     </div>
   </div>
 
-  <script>
-    const form = document.getElementById('creditCardForm');
-    const responseMessage = document.getElementById('responseMessage');
-    const submitBtn = document.getElementById('submitBtn');
+  <!-- FOOTER -->
+  <footer id="contact">
+    <p>📍 Flood and Flakes Restaurant</p>
+    <p>📞 +91 9XXXXXXXXX</p>
+    <p>© 2025 Flood and Flakes. All Rights Reserved.</p>
+  </footer>
 
-    // IMPORTANT: Replace this URL with your Google Sheets App Script URL
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzJ99ok_jkFlS9cALsrKHqgj8OH5kWx8oIGiyAtwz4udQq6-8eSo4PI7a5rqOF_azSaaA/exec';
-
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-
-      // Show loading message
-      responseMessage.textContent = 'Submitting...';
-      responseMessage.className = 'response-message';
-      responseMessage.style.display = 'block';
-      submitBtn.disabled = true;
-
-      const formData = new FormData(form);
-
-      fetch(scriptURL, { method: 'POST', body: formData })
-        .then(response => {
-          if (response.ok) {
-            // 🚀 Direct Redirect without delay
-            window.location.href = "https://applyonline.hdfcbank.com/cards/credit-cards.html?CHANNELSOURCE=ZETA&DSACode=XTML&LGcode=STML85&LCcode=STML85&LC2=STML85&SMcode=D8802#nbb";
-          } else {
-            // Handle server-side errors
-            responseMessage.textContent = 'An error occurred. Please try again.';
-            responseMessage.className = 'response-message error';
-          }
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          responseMessage.textContent = 'An error occurred. Please try again.';
-          responseMessage.className = 'response-message error';
-        })
-        .finally(() => {
-          submitBtn.disabled = false;
-        });
-    });
-  </script>
 </body>
 </html>
